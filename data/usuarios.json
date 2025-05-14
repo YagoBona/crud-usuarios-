@@ -22,5 +22,11 @@
     "nombre": "Yago",
     "email": "yager@gmail.com",
     "edad": 21
+  },
+  {
+    "id": 5,
+    "nombre": "Richard",
+    "email": "hola@gmail.com",
+    "edad": 37
   }
 ]
