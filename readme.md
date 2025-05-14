@@ -20,8 +20,8 @@ Este proyecto es una API REST creada con **Node.js** y **Express** que permite g
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/mi-api-usuarios.git
-cd mi-api-usuarios
+git clone https://github.com/YagoBona/crud-usuarios-.git
+cd crud-usuarios
 Instalar dependencias:
 
 bash
@@ -40,7 +40,7 @@ El servidor se ejecutará en http://localhost:3000
 go
 Copiar
 Editar
-📦 mi-api-usuarios
+📦 crud-usuarios
 ├── index.js           // Código principal del servidor
 ├── usuarios.json      // Archivo donde se almacenan los usuarios
 ├── package.json       // Dependencias y scripts
