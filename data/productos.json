@@ -1,8 +1,26 @@
 [
   {
-    "id": 1,
-    "nombre": "Teclado",
-    "precio": 150000,
-    "stock": 154
+    "id": 2,
+    "nombre": "Mouse",
+    "precio": 30000,
+    "stock": 32
+  },
+  {
+    "id": 3,
+    "nombre": "Notebook",
+    "precio": 4000000,
+    "stock": 3
+  },
+  {
+    "id": 4,
+    "nombre": "Monitor",
+    "precio": 545555,
+    "stock": 23
+  },
+  {
+    "id": 5,
+    "nombre": "Auricular",
+    "precio": 68900,
+    "stock": 14
   }
 ]
