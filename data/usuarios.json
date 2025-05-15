@@ -1,15 +1,9 @@
 [
   {
-    "id": 1,
-    "nombre": "Ana",
-    "email": "ana@email.com",
-    "edad": 25
-  },
-  {
     "id": 2,
-    "nombre": "chino qlokura",
-    "email": "chino@gmail.com",
-    "edad": 32
+    "nombre": "chinardo de qlokura",
+    "email": "chinardo@gmail.com",
+    "edad": 33
   },
   {
     "id": 3,
@@ -28,5 +22,11 @@
     "nombre": "Richard",
     "email": "hola@gmail.com",
     "edad": 37
+  },
+  {
+    "id": 6,
+    "nombre": "carlo",
+    "email": "carlito@gmail.com",
+    "edad": 39
   }
 ]

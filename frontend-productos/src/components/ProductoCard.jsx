@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 function ProductoCard({ producto, onDelete, onEdit  }) {
   return (
     <div className="bg-white rounded-xl shadow p-4 border hover:shadow-md transition">

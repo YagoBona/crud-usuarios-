@@ -52,31 +52,40 @@ module.exports = {
   },
 
   actualizarUsuario: (req, res) => {
-    const usuarios = leerUsuarios();
-    const usuario = usuarios.find((u) => u.id === req.params.id);
+  const usuarios = leerUsuarios();
+  const id = parseInt(req.params.id);
+  const usuario = usuarios.find((u) => u.id === id);
 
-    if (!usuario) return res.status(404).json({ error: "Usuario no encontrado" });
+  if (!usuario) {
+    return res.status(404).json({ error: "Usuario no encontrado" });
+  }
 
-    const { nombre, email, edad } = req.body;
-    if (!nombre || !email || !edad) {
-      return res.status(400).json({ error: "Faltan campos obligatorios" });
-    }
+  const { nombre, email, edad } = req.body;
 
-    usuario.nombre = nombre;
-    usuario.email = email;
-    usuario.edad = edad;
+  if (!nombre || !email || !edad) {
+    return res.status(400).json({ error: "Faltan campos obligatorios" });
+  }
 
-    guardarUsuarios(usuarios);
-    res.json(usuario);
-  },
+  usuario.nombre = nombre;
+  usuario.email = email;
+  usuario.edad = edad;
+
+  guardarUsuarios(usuarios);
+  res.json(usuario);
+}
+,
 
   eliminarUsuario: (req, res) => {
-    let usuarios = leerUsuarios();
-    const usuario = usuarios.find((u) => u.id === req.params.id);
-    if (!usuario) return res.status(404).json({ error: "Usuario no encontrado" });
+  let usuarios = leerUsuarios();
+  const id = parseInt(req.params.id);
+  const usuario = usuarios.find((u) => u.id === id);
 
-    usuarios = usuarios.filter((u) => u.id !== req.params.id);
-    guardarUsuarios(usuarios);
-    res.json({ mensaje: "Usuario eliminado correctamente" });
-  },
+  if (!usuario) {
+    return res.status(404).json({ error: "Usuario no encontrado" });
+  }
+
+  usuarios = usuarios.filter((u) => u.id !== id);
+  guardarUsuarios(usuarios);
+  res.json({ mensaje: "Usuario eliminado correctamente" });
+},
 };

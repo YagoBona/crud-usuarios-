@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { getProductos, crearProducto } from "./services/api";
 import ProductoCard from "./components/ProductoCard";
 import { eliminarProducto } from "./services/api";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
 
 
 function App() {
@@ -84,6 +87,40 @@ const handleEditar = (producto) => {
   window.scrollTo({ top: 0, behavior: "smooth" }); // opcional
 };
 
+const exportarProductosPDF = () => {
+  const doc = new jsPDF();
+
+  doc.setFontSize(16);
+  doc.text("Listado de Productos", 14, 15);
+
+  autoTable(doc, {
+    startY: 20,
+    head: [["#", "Nombre", "Precio", "Stock"]],
+    body: productos.map((producto, i) => [
+      i + 1,
+      producto.nombre,
+      `$${producto.precio}`,
+      producto.stock,
+    ]),
+    styles: {
+      fontSize: 10,
+      cellPadding: 4,
+    },
+    headStyles: {
+      fillColor: [52, 152, 219], // Azul
+      textColor: 255,
+      halign: "center",
+    },
+    columnStyles: {
+      0: { halign: "center", cellWidth: 10 },
+      2: { halign: "right", cellWidth: 25 },
+      3: { halign: "center", cellWidth: 20 },
+    },
+  });
+
+  doc.save("productos.pdf");
+};
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -140,6 +177,16 @@ const handleEditar = (producto) => {
       </form>
 
 <h1 className="text-3xl font-bold mb-6 text-center">Listado de Productos</h1>
+
+    
+      <div className="flex justify-center mb-6">
+        <button
+          onClick={exportarProductosPDF}
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+        >
+          Exportar a PDF
+        </button>
+      </div>
 
       {/* LISTADO */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

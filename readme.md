@@ -1,74 +1,105 @@
-# 🧠 CRUD de Usuarios con Express.js
+# 🧩 Panel CRUD de Productos y Usuarios con React + Express
 
-Este proyecto es una API REST creada con **Node.js** y **Express** que permite gestionar una lista de usuarios. Los datos se almacenan en un archivo `usuarios.json`, simulando una base de datos para fines prácticos y educativos.
+Este proyecto es una aplicación web full stack construida con:
 
----
+- 🔧 Backend: Node.js + Express + almacenamiento en archivos JSON
+- 💻 Frontend: React + Tailwind CSS + React Router
+- 📄 Exportación: jsPDF + jsPDF-AutoTable
 
-## 📦 Características
-
-- CRUD completo de usuarios (Create, Read, Update, Delete)
-- Almacenamiento persistente en archivo JSON
-- Validaciones básicas de campos requeridos
-- Verificación de email único
-- Errores claros y personalizados
-- Probado con Thunder Client / Postman
+Permite gestionar dos entidades (Productos y Usuarios) con operaciones CRUD completas: listar, crear, editar y eliminar. También ofrece exportación a PDF en formato tabla.
 
 ---
 
-## 🚀 Instalación y ejecución
+## 🗂️ Estructura
 
-1. Clonar el repositorio:
+/backend
+├── controllers/
+├── routes/
+├── data/
+└── index.js
 
-```bash
+/frontend
+├── pages/
+├── components/
+├── services/
+└── main.jsx
+
+---
+
+## 🚀 Funcionalidades
+
+### Productos
+- ✅ Listado con nombre, precio y stock
+- 📝 Formulario para crear productos
+- 🗑️ Eliminar producto
+- ✏️ Editar producto (en ruta /editar/:id)
+- 📤 Exportar listado de productos a PDF en tabla
+
+### Usuarios
+- ✅ Listado con nombre, email y edad
+- 📝 Formulario para crear usuarios
+- 🗑️ Eliminar usuario
+- ✏️ Editar usuario (en ruta /usuarios/editar/:id)
+- 📤 Exportar listado de usuarios a PDF en tabla
+
+---
+
+## 📦 Tecnologías usadas
+
+### Backend
+- Node.js
+- Express
+- fs (manejo de archivos locales)
+- JSON como almacenamiento persistente
+
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+- React Router DOM
+- jsPDF + jspdf-autotable
+
+---
+
+## 🛠️ Instalación
+
+### 🔁 1. Clonar el proyecto
+
 git clone https://github.com/YagoBona/crud-usuarios-.git
-cd crud-usuarios
-Instalar dependencias:
+cd mi-panel-crud
 
-bash
-Copiar
-Editar
+📦 2. Instalar dependencias
+Backend
+cd backend
 npm install
-Iniciar el servidor:
 
-bash
-Copiar
-Editar
+Frontend
+cd ../frontend
+npm install
+
+▶️ Ejecución en desarrollo
+
+🚀 Iniciar backend (en puerto 3000)
+cd backend
 node index.js
-El servidor se ejecutará en http://localhost:3000
 
-📁 Estructura del proyecto
-go
-Copiar
-Editar
-📦 crud-usuarios
-├── index.js           // Código principal del servidor
-├── usuarios.json      // Archivo donde se almacenan los usuarios
-├── package.json       // Dependencias y scripts
-└── README.md          // Este archivo
-📌 Endpoints disponibles
-✔️ GET /usuarios
-Devuelve el listado completo de usuarios.
+💻 Iniciar frontend (en puerto 5173)
+cd frontend
+npm run dev
 
-✔️ GET /usuarios/:id
-Devuelve un usuario por su ID.
-404 si no existe.
+Abrí el navegador en:
+http://localhost:5173
 
-✔️ POST /usuarios
-Crea un nuevo usuario.
-Campos requeridos: nombre, email, edad.
-Valida: email no vacío ni repetido.
+🧪 Rutas principales
+Ruta	Descripción
+/	Gestión de productos
+/editar/:id	Edición de producto específico
+/usuarios	Gestión de usuarios
+/usuarios/editar/:id	Edición de usuario específico
 
-✔️ PUT /usuarios/:id
-Actualiza un usuario existente.
-Valida: existencia del usuario, campos requeridos, email único.
+📝 Consideraciones
+No se usa base de datos, los datos se almacenan en archivos .json.
 
-✔️ DELETE /usuarios/:id
-Elimina un usuario por ID.
-Valida: existencia del usuario.
+El backend debe estar corriendo para que el frontend funcione correctamente.
 
-🔧 Tecnologías usadas
-Node.js
-
-Express.js
-
-Thunder Client o Postman
+El proyecto es modular: controladores y rutas están separados por entidad.
